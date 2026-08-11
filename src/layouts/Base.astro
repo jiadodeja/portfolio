@@ -1,0 +1,118 @@
+---
+import SocialIcons from '../components/SocialIcons.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Jia Dodeja',
+  description = 'Software developer at NJIT, building full-stack projects with a soft spot for color and detail.',
+} = Astro.props;
+
+const nav = [
+  { href: '/about', label: 'About' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="site-name">Jia Dodeja</a>
+        <nav class="site-nav">
+          {nav.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span class="footer-copy">&copy; {new Date().getFullYear()} Jia Dodeja</span>
+        <SocialIcons />
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 28px;
+      }
+      .site-name {
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: var(--ink);
+      }
+      .site-nav {
+        display: flex;
+        gap: 22px;
+        font-size: 0.88rem;
+        color: var(--brown-muted);
+      }
+      .site-nav a {
+        transition: color 0.2s ease;
+      }
+      .site-nav a:hover {
+        color: var(--terracotta);
+      }
+      .site-footer {
+        border-top: 1px solid var(--border-soft);
+        margin-top: 3rem;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 28px;
+      }
+      .footer-copy {
+        font-size: 0.8rem;
+        color: var(--brown-faint);
+      }
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .site-nav {
+          gap: 14px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .footer-inner {
+          flex-direction: column;
+          gap: 14px;
+        }
+      }
+    </style>
+  </body>
+</html>
