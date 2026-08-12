@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects.js';
+---
+<Base title="Projects · Jia Dodeja">
+  <section class="section">
+    <div class="wrap">
+      <p class="label">Things I've built</p>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-intro">
+        A running list of what I've made, from full-stack apps to things I built just to
+        finally understand a concept from class. Some are live, some live on GitHub for now.
+      </p>
+      <div class="project-grid">
+        {projects.map((p) => (
+          <ProjectCard name={p.name} href={p.href} tagline={p.tagline} live={p.live} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 0.75rem;
+    }
+    .page-intro {
+      color: var(--brown-muted);
+      max-width: 560px;
+      margin: 0 0 2rem;
+      line-height: 1.7;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+  </style>
+</Base>
