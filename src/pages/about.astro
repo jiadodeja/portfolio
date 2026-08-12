@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About · Jia Dodeja">
+  <section class="section">
+    <div class="wrap about-inner">
+      <div class="about-photo">
+        <span>your photo</span>
+      </div>
+      <div class="about-text">
+        <p class="label">About</p>
+        <p>
+          I'm Jia, a CS major (minor in Innovation and Entrepreneurship) at NJIT, currently a
+          rising senior. I mostly build full-stack applications, comfortable across the stack
+          from Next.js and React to backend work with Supabase, Prisma, and various AI APIs —
+          though not everything I build is AI-flavored.
+        </p>
+        <p>
+          I've been to HackPrinceton twice, and I'm always looking for a team working on
+          something that actually matters, especially around accessibility or women's health.
+          I'm also genuinely open to education, entertainment, or just anything fun, and would
+          love to try something slightly outside my comfort zone, like a hardware-integrated
+          build, if the team needs a software or full-stack teammate.
+        </p>
+        <p>
+          Outside of code, I've got a soft spot for flowers and butterflies, I'm always up for
+          trying a new restaurant, and I'm a bit of a cinephile. I love color and vibrancy in
+          just about everything, which probably explains why this site isn't just black and
+          white.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-inner {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .about-photo {
+      flex-shrink: 0;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--paper);
+      border: 2px solid var(--terracotta-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--border-warm);
+    }
+    .about-text p {
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin: 0 0 1.1rem;
+    }
+    @media (max-width: 640px) {
+      .about-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</Base>
