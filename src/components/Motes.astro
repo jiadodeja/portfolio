@@ -1,0 +1,46 @@
+---
+---
+<div class="motes" aria-hidden="true">
+  <span class="mote a"></span>
+  <span class="mote b"></span>
+  <span class="mote c"></span>
+  <span class="mote d"></span>
+  <span class="mote e"></span>
+</div>
+
+<style>
+  .motes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .mote {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--terracotta-light);
+  }
+  .a { top: 12%; right: 18%; width: 6px; height: 6px; animation: floatA 6s ease-in-out infinite; }
+  .b { top: 32%; right: 8%; width: 9px; height: 9px; background: var(--border-warm); animation: floatB 8s ease-in-out infinite; }
+  .c { top: 55%; right: 26%; width: 5px; height: 5px; background: var(--terracotta); animation: floatC 7s ease-in-out infinite; }
+  .d { top: 70%; left: 48%; width: 7px; height: 7px; animation: floatA 9s ease-in-out infinite; }
+  .e { top: 20%; left: 10%; width: 5px; height: 5px; background: var(--border-warm); animation: floatC 10s ease-in-out infinite; }
+
+  @keyframes floatA {
+    0%, 100% { transform: translate(0, 0); opacity: 0.55; }
+    50% { transform: translate(10px, -16px); opacity: 0.9; }
+  }
+  @keyframes floatB {
+    0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+    50% { transform: translate(-14px, -10px); opacity: 0.8; }
+  }
+  @keyframes floatC {
+    0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+    50% { transform: translate(8px, 14px); opacity: 0.85; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mote { animation: none !important; }
+  }
+</style>
